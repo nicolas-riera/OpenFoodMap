@@ -3,34 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Open Food Map</title>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="resources/styles/styles.css">
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="resources/script/script.js" defer></script>
+    <title>Connexion — Open Food Map</title>
+    <link rel="stylesheet" href="resources/styles/login.css">
 </head>
 <body>
 
-    <header>
+<div class="login-container">
+    <h1>Connexion</h1>
+    <div id="error" class="error-message"></div>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="user_id" required autocomplete="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" id="submitBtn">Se connecter</button>
+    </form>
 
-        <a href="https://fr.openfoodfacts.org/" target="_blank"><img src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg" alt="Logo Open Food Fact"></a>
+    <div class="register-area">
+        <p>Pas encore de compte ?</p>
+        <a href="https://world.openfoodfacts.org/cgi/user.pl" target="_blank" class="btn-register">S'inscrire sur Open Food Facts</a>
+    </div>
+</div>
 
-        <div id="auth-buttons" class="buttons"></div> 
-
-    </header>
-
-    <section class="main">
-        <section id="map"></section>
-
-        <aside>
-            <div>
-                <p>Test</p>
-            </div>
-        </aside>
-    </section>    
+<script src="resources/script/login.js"></script>
 </body>
 </html>

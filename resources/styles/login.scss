@@ -1,11 +1,10 @@
-$color-bg: #ffffff;
-$color-text: #111111;
-$color-text-muted: #666666;
-$color-border: #e0e0e0;
-$color-error: #ff3333;
-$color-error-bg: #fff0f0;
-$color-disabled: #cccccc;
-$radius: 6px;
+$color-bg: #f9f9fb;
+$color-card: #ffffff;
+$color-text: #1a1a1a;
+$color-text-muted: #6b7280;
+$color-border: #e5e7eb;
+$color-primary: #111111;
+$radius: 8px;
 
 body {
     margin: 0;
@@ -14,69 +13,79 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: $color-bg;
-    font-family: -apple-system, system-ui, sans-serif;
-    color: $color-text;
+    font-family: 'Inter', -apple-system, sans-serif;
 }
 
 .login-container {
     width: 100%;
-    max-width: 340px;
-    padding: 20px;
+    max-width: 380px;
+    padding: 40px;
+    background: $color-card;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 
     h1 {
-        font-size: 22px;
+        font-size: 24px;
         text-align: center;
-        margin-bottom: 24px;
+        margin: 0 0 8px 0;
     }
 
     .form-group {
-        margin-bottom: 16px;
-
+        margin-top: 24px;
         label {
             display: block;
-            font-size: 13px;
+            font-size: 14px;
             color: $color-text-muted;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
-
         input {
             width: 100%;
             padding: 12px;
             border: 1px solid $color-border;
             border-radius: $radius;
             box-sizing: border-box;
-            font-size: 15px;
-
-            &:focus {
-                border-color: $color-text;
-                outline: none;
-            }
         }
     }
 
     button {
         width: 100%;
-        padding: 12px;
-        background: $color-text;
+        margin-top: 24px;
+        padding: 14px;
+        background: $color-primary;
         color: white;
         border: none;
         border-radius: $radius;
         cursor: pointer;
         font-weight: 600;
-
-        &:disabled {
-            background: $color-disabled;
-        }
     }
 
-    .error-message {
-        color: $color-error;
-        font-size: 13px;
-        margin-bottom: 16px;
+    .register-area {
+        margin-top: 32px;
         text-align: center;
-        display: none;
-        padding: 10px;
-        background: $color-error-bg;
-        border-radius: $radius;
+        border-top: 1px solid $color-border;
+        padding-top: 24px;
+
+        p {
+            font-size: 14px;
+            color: $color-text-muted;
+            margin: 0 0 16px 0;
+        }
+
+        .btn-register {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid $color-border;
+            border-radius: $radius;
+            color: $color-text;
+            text-decoration: none;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: #f3f4f6;
+            }
+        }
     }
 }
