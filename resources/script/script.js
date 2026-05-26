@@ -23,14 +23,12 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 async function loadUsersMarkers() {
     const { data: users, error } = await supabaseClient
         .from('User') 
-        .select('name, latitude, longitude, description');
+        .select('name, latitude, longitude, description, language');
 
     if (error) {
         console.error('Error loading users :', error);
         return;
     }
-
-    console.log(users)
 
     users.forEach(user => {
         if (user.latitude && user.longitude) {
@@ -39,7 +37,10 @@ async function loadUsersMarkers() {
 
             const marker = L.marker([lat, lng]).addTo(map);
 
-            const popupContent = `<b>${user.name}</b><br>${user.description || "Pas de description."}`;
+            const langValue = user.language && user.language !== "null" ? user.language.trim() : "";
+            const langContent = langValue ? `<br>Langue : ${langValue}` : "";   
+
+            const popupContent = `<b>${user.name}</b><br>${user.description || "Pas de description."}${langContent}`;
             marker.bindPopup(popupContent);
         }
     });
