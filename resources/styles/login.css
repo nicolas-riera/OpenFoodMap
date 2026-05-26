@@ -1,73 +1,67 @@
 body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #ffffff;
-    font-family: -apple-system, system-ui, sans-serif;
-    color: #111111;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: -apple-system, system-ui, sans-serif;
+  color: #111111;
 }
 
 .login-container {
-    width: 100%;
-    max-width: 340px;
-    padding: 20px;
+  width: 100%;
+  max-width: 340px;
+  padding: 20px;
+}
+.login-container h1 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.login-container .form-group {
+  margin-bottom: 16px;
+}
+.login-container .form-group label {
+  display: block;
+  font-size: 13px;
+  color: #666666;
+  margin-bottom: 6px;
+}
+.login-container .form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+.login-container .form-group input:focus {
+  border-color: #111111;
+  outline: none;
+}
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: #111111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.login-container button:disabled {
+  background: #cccccc;
+}
+.login-container .error-message {
+  color: #ff3333;
+  font-size: 13px;
+  margin-bottom: 16px;
+  text-align: center;
+  display: none;
+  padding: 10px;
+  background: #fff0f0;
+  border-radius: 6px;
 }
 
-h1 {
-    font-size: 22px;
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.form-group {
-    margin-bottom: 16px;
-}
-
-label {
-    display: block;
-    font-size: 13px;
-    color: #666666;
-    margin-bottom: 6px;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-size: 15px;
-}
-
-input:focus {
-    border-color: #111111;
-    outline: none;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    background: #111111;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-button:disabled {
-    background: #cccccc;
-}
-
-.error-message {
-    color: #ff3333;
-    font-size: 13px;
-    margin-bottom: 16px;
-    text-align: center;
-    display: none;
-    padding: 10px;
-    background: #fff0f0;
-    border-radius: 6px;
-}
+/*# sourceMappingURL=login.css.map */
