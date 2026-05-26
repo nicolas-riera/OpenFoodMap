@@ -10,7 +10,21 @@ const maxBounds = L.latLngBounds(
 
 const session = JSON.parse(localStorage.getItem('off_user_session'));
 
+const authContainer = document.getElementById('auth-buttons');
+const storedSession = localStorage.getItem('off_user_session');
+
 if (!session || !session.isLoggedIn) {
+    authContainer.innerHTML = '<a href="login.html"><button>Se connecter</button></a>';
+} else {
+    authContainer.innerHTML = `
+        <button>Mon marqueur</button>
+        <button id="logout-btn">Se déconnecter</button>
+    `;
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+        localStorage.removeItem('off_user_session');
+        location.reload();
+    });
 }
 
 const map = L.map('map', {
