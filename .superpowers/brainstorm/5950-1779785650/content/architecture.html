@@ -1,0 +1,66 @@
+<h2>Architecture — OpenFoodMap</h2>
+<p class="subtitle">Vue d'ensemble du système, 100% open source, tourne sur ton PC</p>
+
+<div class="section">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+
+    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:1rem;border:1px solid rgba(255,255,255,0.1)">
+      <div style="font-size:0.7rem;text-transform:uppercase;opacity:0.5;margin-bottom:0.5rem">Frontend</div>
+      <div style="font-weight:600;margin-bottom:0.5rem">Next.js 14</div>
+      <ul style="font-size:0.8rem;opacity:0.7;padding-left:1rem;margin:0">
+        <li>Carte Leaflet.js</li>
+        <li>Page profil</li>
+        <li>Formulaire inscription</li>
+        <li>Dark/Light mode</li>
+      </ul>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:1rem;border:1px solid rgba(255,255,255,0.1)">
+      <div style="font-size:0.7rem;text-transform:uppercase;opacity:0.5;margin-bottom:0.5rem">Backend (API Routes)</div>
+      <div style="font-weight:600;margin-bottom:0.5rem">Next.js + NextAuth</div>
+      <ul style="font-size:0.8rem;opacity:0.7;padding-left:1rem;margin:0">
+        <li>OAuth OFF (Keycloak)</li>
+        <li>GET /api/contributors</li>
+        <li>POST /api/contributors</li>
+        <li>POST /api/report</li>
+      </ul>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:1rem;border:1px solid rgba(255,255,255,0.1)">
+      <div style="font-size:0.7rem;text-transform:uppercase;opacity:0.5;margin-bottom:0.5rem">Base de données</div>
+      <div style="font-weight:600;margin-bottom:0.5rem">PostgreSQL + Prisma</div>
+      <ul style="font-size:0.8rem;opacity:0.7;padding-left:1rem;margin:0">
+        <li>Table contributors</li>
+        <li>Table reports</li>
+        <li>Statut modération</li>
+        <li>Localisation choisie</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:1rem;border:1px solid rgba(255,255,255,0.07)">
+    <div style="font-size:0.7rem;text-transform:uppercase;opacity:0.5;margin-bottom:0.75rem">Flux principal</div>
+    <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;flex-wrap:wrap">
+      <span style="background:rgba(240,130,15,0.2);padding:4px 10px;border-radius:4px">Contributeur OFF</span>
+      <span style="opacity:0.4">→</span>
+      <span style="background:rgba(255,255,255,0.07);padding:4px 10px;border-radius:4px">Login OAuth Keycloak</span>
+      <span style="opacity:0.4">→</span>
+      <span style="background:rgba(255,255,255,0.07);padding:4px 10px;border-radius:4px">Choix localisation + bio</span>
+      <span style="opacity:0.4">→</span>
+      <span style="background:rgba(255,255,255,0.07);padding:4px 10px;border-radius:4px">Profil "en attente"</span>
+      <span style="opacity:0.4">→</span>
+      <span style="background:rgba(255,255,255,0.07);padding:4px 10px;border-radius:4px">Modérateur valide</span>
+      <span style="opacity:0.4">→</span>
+      <span style="background:rgba(80,180,80,0.2);padding:4px 10px;border-radius:4px">Pin visible sur la carte</span>
+    </div>
+  </div>
+
+  <div style="margin-top:1rem;background:rgba(255,255,255,0.03);border-radius:8px;padding:1rem;border:1px solid rgba(255,255,255,0.07)">
+    <div style="font-size:0.7rem;text-transform:uppercase;opacity:0.5;margin-bottom:0.75rem">Déploiement</div>
+    <div style="font-size:0.85rem;opacity:0.8">
+      <code style="background:rgba(255,255,255,0.08);padding:2px 8px;border-radius:4px">docker compose up</code>
+      &nbsp;→&nbsp; Next.js sur <strong>:3000</strong> + PostgreSQL sur <strong>:5432</strong>
+    </div>
+  </div>
+</div>

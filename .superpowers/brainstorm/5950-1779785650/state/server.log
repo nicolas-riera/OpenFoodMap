@@ -1,0 +1,14 @@
+{"type":"server-started","port":50159,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:50159","screen_dir":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content","state_dir":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/state"}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/waiting-auth.html"}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/location-granularity.html"}
+{"source":"user-event","type":"click","text":"C\n    \n      Choix libre (pays / ville / quartier)\n      Le contributeur choisit son niveau de précision au moment de l'inscription. Plus de contrôle, interface plus complexe.\n      \n        📍 Choix : Pays · Ville · Quartier","choice":"c","id":null,"timestamp":1779785894356}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/profile-card.html"}
+{"source":"user-event","type":"click","text":"M\n        \n          marie_dupont\n          🇫🇷 Lyon · 1 243 contributions\n        \n      \n      \"Passionnée de nutrition et de cuisine du monde 🌍\"\n      Langues : FR · EN · ES\n    \n    \n      Standard (recommandé)\n      Avatar + pseudo + localisation + bio courte + nb contributions + langues parlées.","choice":"b","id":null,"timestamp":1779785982251}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/map-style.html"}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/waiting-approaches.html"}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/architecture.html"}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/ui-main.html"}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/inscription-flow.html"}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/inscription-flow-v2.html"}
+{"type":"screen-added","file":"/Users/andre/Documents/OpenFoodMap/.superpowers/brainstorm/5950-1779785650/content/moderation.html"}
+{"type":"server-stopped","reason":"owner process exited"}

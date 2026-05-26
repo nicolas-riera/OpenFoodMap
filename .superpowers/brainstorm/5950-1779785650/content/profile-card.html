@@ -1,0 +1,63 @@
+<h2>Que voit-on en cliquant sur un pin ?</h2>
+<p class="subtitle">La fiche profil du contributeur — quel niveau d'info ?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:1rem;background:rgba(255,255,255,0.04)">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem">
+        <div style="width:40px;height:40px;border-radius:50%;background:#3a7bd5;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1rem">M</div>
+        <div>
+          <div style="font-weight:600">marie_dupont</div>
+          <div style="font-size:0.75rem;opacity:0.6">🇫🇷 Lyon</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Minimal</h3>
+      <p>Avatar OFF + pseudo + pays/ville. Rapide à afficher, privacy maximale.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:1rem;background:rgba(255,255,255,0.04)">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem">
+        <div style="width:40px;height:40px;border-radius:50%;background:#3a7bd5;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1rem">M</div>
+        <div>
+          <div style="font-weight:600">marie_dupont</div>
+          <div style="font-size:0.75rem;opacity:0.6">🇫🇷 Lyon · 1 243 contributions</div>
+        </div>
+      </div>
+      <div style="font-size:0.8rem;opacity:0.7;font-style:italic;margin-bottom:0.5rem">"Passionnée de nutrition et de cuisine du monde 🌍"</div>
+      <div style="font-size:0.75rem;opacity:0.5">Langues : FR · EN · ES</div>
+    </div>
+    <div class="card-body">
+      <h3>Standard (recommandé)</h3>
+      <p>Avatar + pseudo + localisation + bio courte + nb contributions + langues parlées.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:1rem;background:rgba(255,255,255,0.04)">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem">
+        <div style="width:40px;height:40px;border-radius:50%;background:#3a7bd5;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1rem">M</div>
+        <div>
+          <div style="font-weight:600">marie_dupont</div>
+          <div style="font-size:0.75rem;opacity:0.6">🇫🇷 Lyon · 1 243 contributions</div>
+        </div>
+      </div>
+      <div style="font-size:0.8rem;opacity:0.7;font-style:italic;margin-bottom:0.5rem">"Passionnée de nutrition et de cuisine du monde 🌍"</div>
+      <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.4rem">
+        <span style="background:rgba(58,123,213,0.3);padding:2px 8px;border-radius:12px;font-size:0.7rem">🥗 Végétalien</span>
+        <span style="background:rgba(58,123,213,0.3);padding:2px 8px;border-radius:12px;font-size:0.7rem">🍷 Boissons</span>
+        <span style="background:rgba(58,123,213,0.3);padding:2px 8px;border-radius:12px;font-size:0.7rem">🇯🇵 Asie</span>
+      </div>
+      <div style="font-size:0.75rem;opacity:0.5">Langues : FR · EN · ES &nbsp;·&nbsp; Membre depuis 2019</div>
+    </div>
+    <div class="card-body">
+      <h3>Riche</h3>
+      <p>Tout ça + tags de spécialité (catégories contribuées), date d'inscription OFF.</p>
+    </div>
+  </div>
+
+</div>

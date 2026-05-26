@@ -1,0 +1,37 @@
+<h2>Quelle précision de localisation ?</h2>
+<p class="subtitle">Chaque contributeur choisit où il apparaît sur la carte. Quel niveau de détail proposer ?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Pays uniquement</h3>
+      <p>Le pin s'affiche au centre du pays. Maximum de privacy, minimum d'intérêt visuel. Adapté aux personnes très prudentes.</p>
+      <div style="margin-top:0.75rem;padding:0.5rem;background:rgba(255,255,255,0.05);border-radius:6px;font-size:0.85rem">
+        📍 France &nbsp;→&nbsp; pin sur Paris approximatif
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Ville (recommandé)</h3>
+      <p>Le pin est placé au centre de la ville choisie. Bon compromis : on voit la densité communautaire sans révéler l'adresse exacte.</p>
+      <div style="margin-top:0.75rem;padding:0.5rem;background:rgba(255,255,255,0.05);border-radius:6px;font-size:0.85rem">
+        📍 Lyon &nbsp;→&nbsp; pin au centre-ville, ~5km de précision
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Choix libre (pays / ville / quartier)</h3>
+      <p>Le contributeur choisit son niveau de précision au moment de l'inscription. Plus de contrôle, interface plus complexe.</p>
+      <div style="margin-top:0.75rem;padding:0.5rem;background:rgba(255,255,255,0.05);border-radius:6px;font-size:0.85rem">
+        📍 Choix : <strong>Pays</strong> · <strong>Ville</strong> · <strong>Quartier</strong>
+      </div>
+    </div>
+  </div>
+</div>
