@@ -1,14 +1,21 @@
 const SUPABASE_URL = 'https://xkgdwqfldzqzsahyvicf.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_T2lUSzY9d5N1PWMt0cveEg_uJIdoJoO'; 
 
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const session = JSON.parse(localStorage.getItem('off_user_session'));
+const username = session ? session.username : 'guest';
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    global: {
+        headers: {
+            'x-user-name': username
+        }
+    }
+});
 
 const maxBounds = L.latLngBounds(
     L.latLng(-90, -180), 
     L.latLng(90, 180)    
 );
-
-const session = JSON.parse(localStorage.getItem('off_user_session'));
 
 const authContainer = document.getElementById('auth-buttons');
 const storedSession = localStorage.getItem('off_user_session');
@@ -17,7 +24,7 @@ if (!session || !session.isLoggedIn) {
     authContainer.innerHTML = '<a href="login.html"><button>Se connecter</button></a>';
 } else {
     authContainer.innerHTML = `
-        <button>Mon marqueur</button>
+        <button id="open-popup-btn">Mon marqueur</button>
         <button id="logout-btn">Se déconnecter</button>
     `;
 
@@ -66,3 +73,159 @@ async function loadUsersMarkers() {
 }
 
 loadUsersMarkers();
+
+const openBtn = document.getElementById('open-popup-btn');
+const closeBtn = document.getElementById('close-popup-btn');
+const popup = document.getElementById('custom-popup');
+const popupContentContainer = document.querySelector('.popup-content');
+
+let miniMap = null;
+let miniMapMarker = null;
+let selectedLat = null;
+let selectedLng = null;
+
+if (openBtn && closeBtn && popup) {
+    openBtn.addEventListener('click', async () => {
+        popupContentContainer.querySelectorAll('.dynamic-content').forEach(el => el.remove());
+
+        const { data: userData, error } = await supabaseClient
+            .from('User')
+            .select('latitude, longitude, description')
+            .eq('name', session.username)
+            .maybeSingle();
+
+        const div = document.createElement('div');
+        div.className = 'dynamic-content';
+
+        const hasMarker = userData && userData.latitude && userData.longitude;
+        
+        selectedLat = hasMarker ? parseFloat(userData.latitude) : null;
+        selectedLng = hasMarker ? parseFloat(userData.longitude) : null;
+
+        div.innerHTML = `
+            <h3>${hasMarker ? 'Modifier mon marqueur' : 'Placer un marqueur'}</h3>
+            
+            <div id="mini-map" style="width: 100%; height: 250px; margin-bottom: 15px; border-radius: 4px; cursor: crosshair;"></div>
+            
+            <div style="margin-bottom: 15px;">
+                <button id="popup-gps-btn" type="button">Utiliser ma position GPS</button>
+            </div>
+
+            <textarea id="marker-desc" placeholder="Description (facultatif)">${hasMarker ? (userData.description || '') : ''}</textarea>
+            
+            <div class="popup-actions" style="margin-top: 15px; display: flex; justify-content: space-between; gap: 10px;">
+                ${hasMarker ? '<button id="delete-marker-btn" style="background-color: #ff4d4d; color: white;">Supprimer</button>' : ''}
+                <button id="save-marker-btn" style="background-color: #4cacaf; color: white; flex-grow: 1;">Enregistrer</button>
+            </div>
+        `;
+
+        popupContentContainer.insertBefore(div, closeBtn);
+        popup.classList.add('active');
+
+        miniMap = L.map('mini-map').setView([selectedLat || 47, selectedLng || 7], hasMarker ? 12 : 4);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            minZoom: 1,
+            maxZoom: 19,
+            noWrap: true
+        }).addTo(miniMap);
+
+        if (hasMarker) {
+            miniMapMarker = L.marker([selectedLat, selectedLng]).addTo(miniMap);
+        }
+
+        miniMap.on('click', (e) => {
+            selectedLat = e.latlng.lat;
+            selectedLng = e.latlng.lng;
+
+            if (miniMapMarker) {
+                miniMapMarker.setLatLng(e.latlng);
+            } else {
+                miniMapMarker = L.marker(e.latlng).addTo(miniMap);
+            }
+        });
+
+        document.getElementById('popup-gps-btn').addEventListener('click', () => {
+            navigator.geolocation.getCurrentPosition((position) => {
+                selectedLat = position.coords.latitude;
+                selectedLng = position.coords.longitude;
+                
+                miniMap.setView([selectedLat, selectedLng], 14);
+                if (miniMapMarker) {
+                    miniMapMarker.setLatLng([selectedLat, selectedLng]);
+                } else {
+                    miniMapMarker = L.marker([selectedLat, selectedLng]).addTo(miniMap);
+                }
+            }, () => {
+                alert("Impossible d'obtenir votre position GPS.");
+            });
+        });
+
+        document.getElementById('save-marker-btn').addEventListener('click', async () => {
+            if (selectedLat === null || selectedLng === null) {
+                alert("Veuillez sélectionner un emplacement sur la carte ou utiliser le GPS avant d'enregistrer.");
+                return;
+            }
+
+            const desc = document.getElementById('marker-desc').value;
+            
+            try {
+                const { error } = await supabaseClient
+                    .from('User')
+                    .upsert({
+                        name: session.username,
+                        latitude: selectedLat,
+                        longitude: selectedLng,
+                        description: desc
+                    }, { onConflict: 'name' });
+
+                if (error) throw error;
+                location.reload();
+            } catch (err) {
+                console.error("Erreur d'enregistrement Supabase :", err);
+                alert("Échec de l'enregistrement. Vérifiez la console et vos règles RLS.");
+            }
+        });
+
+        if (hasMarker) {
+            document.getElementById('delete-marker-btn').addEventListener('click', async () => {
+                try {
+                    const { error } = await supabaseClient
+                        .from('User')
+                        .update({ latitude: null, longitude: null, description: null })
+                        .eq('name', session.username);
+
+                    if (error) throw error;
+                    location.reload();
+                } catch (err) {
+                    console.error("Erreur de suppression Supabase :", err);
+                    alert("Échec de la suppression.");
+                }
+            });
+        }
+
+        setTimeout(() => {
+            miniMap.invalidateSize();
+        }, 200);
+    });
+
+    closeBtn.addEventListener('click', () => {
+        popup.classList.remove('active');
+        if (miniMap) {
+            miniMap.remove();
+            miniMap = null;
+            miniMapMarker = null;
+        }
+    });
+
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.classList.remove('active');
+            if (miniMap) {
+                miniMap.remove();
+                miniMap = null;
+                miniMapMarker = null;
+            }
+        }
+    });
+}
