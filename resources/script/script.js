@@ -8,12 +8,6 @@ const maxBounds = L.latLngBounds(
     L.latLng(90, 180)    
 );
 
-const session = JSON.parse(localStorage.getItem('off_user_session'));
-
-if (!session || !session.isLoggedIn) {
-    window.location.href = 'login.html';
-}
-
 const map = L.map('map', {
     maxBounds: maxBounds,
     maxBoundsViscosity: 1.0
