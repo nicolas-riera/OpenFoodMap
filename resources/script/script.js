@@ -30,14 +30,16 @@ async function loadUsersMarkers() {
         return;
     }
 
+    console.log(users)
+
     users.forEach(user => {
-        if (user.Latitude && user.Longitude) {
-            const lat = parseFloat(user.Latitude);
-            const lng = parseFloat(user.Longitude);
+        if (user.latitude && user.longitude) {
+            const lat = parseFloat(user.latitude);
+            const lng = parseFloat(user.longitude);
 
             const marker = L.marker([lat, lng]).addTo(map);
 
-            const popupContent = `<b>${user.Name}</b><br>${user.Description || "Pas de description."}`;
+            const popupContent = `<b>${user.name}</b><br>${user.description || "Pas de description."}`;
             marker.bindPopup(popupContent);
         }
     });
