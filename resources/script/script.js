@@ -1,3 +1,4 @@
+// Database init
 const SUPABASE_URL = 'https://xkgdwqfldzqzsahyvicf.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_T2lUSzY9d5N1PWMt0cveEg_uJIdoJoO'; 
 
@@ -11,11 +12,6 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
         }
     }
 });
-
-const maxBounds = L.latLngBounds(
-    L.latLng(-90, -180), 
-    L.latLng(90, 180)    
-);
 
 const authContainer = document.getElementById('auth-buttons');
 const storedSession = localStorage.getItem('off_user_session');
@@ -33,6 +29,12 @@ if (!session || !session.isLoggedIn) {
         location.reload();
     });
 }
+
+// Map preparation 
+const maxBounds = L.latLngBounds(
+    L.latLng(-90, -180), 
+    L.latLng(90, 180)    
+);
 
 const map = L.map('map', {
     maxBounds: maxBounds,
@@ -74,6 +76,7 @@ async function loadUsersMarkers() {
 
 loadUsersMarkers();
 
+// Marker Popup system
 const openBtn = document.getElementById('open-popup-btn');
 const closeBtn = document.getElementById('close-popup-btn');
 const popup = document.getElementById('custom-popup');
@@ -145,6 +148,7 @@ if (openBtn && closeBtn && popup) {
             }
         });
 
+        // GPS button
         document.getElementById('popup-gps-btn').addEventListener('click', () => {
             navigator.geolocation.getCurrentPosition((position) => {
                 selectedLat = position.coords.latitude;
@@ -161,6 +165,7 @@ if (openBtn && closeBtn && popup) {
             });
         });
 
+        // Save button
         document.getElementById('save-marker-btn').addEventListener('click', async () => {
             if (selectedLat === null || selectedLng === null) {
                 alert("Veuillez sélectionner un emplacement sur la carte ou utiliser le GPS avant d'enregistrer.");
@@ -187,6 +192,7 @@ if (openBtn && closeBtn && popup) {
             }
         });
 
+        // Delete button (if marker exists)
         if (hasMarker) {
             document.getElementById('delete-marker-btn').addEventListener('click', async () => {
                 try {
@@ -209,6 +215,7 @@ if (openBtn && closeBtn && popup) {
         }, 200);
     });
 
+    // Close button
     closeBtn.addEventListener('click', () => {
         popup.classList.remove('active');
         if (miniMap) {
