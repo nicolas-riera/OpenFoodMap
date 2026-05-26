@@ -37,7 +37,20 @@ body {
   border-radius: 8px;
   box-sizing: border-box;
 }
-.login-container button {
+.login-container .error-message {
+  color: #ef4444;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: none;
+  padding: 12px;
+  background: #fef2f2;
+  border-radius: 8px;
+  border: 1px solid #fee2e2;
+  font-weight: 500;
+}
+
+button {
   width: 100%;
   margin-top: 24px;
   padding: 14px;
@@ -48,18 +61,19 @@ body {
   cursor: pointer;
   font-weight: 600;
 }
-.login-container .register-area {
+
+.register-area {
   margin-top: 32px;
   text-align: center;
   border-top: 1px solid #e5e7eb;
   padding-top: 24px;
 }
-.login-container .register-area p {
+.register-area p {
   font-size: 14px;
   color: #6b7280;
   margin: 0 0 16px 0;
 }
-.login-container .register-area .btn-register {
+.register-area .btn-register {
   display: inline-block;
   width: 100%;
   padding: 10px;
@@ -71,8 +85,6 @@ body {
   box-sizing: border-box;
   transition: all 0.2s;
 }
-.login-container .register-area .btn-register:hover {
+.register-area .btn-register:hover {
   background-color: #f3f4f6;
-}
-
-/*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=login.css.map */
