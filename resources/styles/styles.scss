@@ -1,3 +1,7 @@
+
+$radius: 6px;
+
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -10,11 +14,27 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
+    button {
+        color: black;
+        font-size: 1em;
+        border: 0px;
+        color: white;
+        background-color: rgb(47, 19, 3);
+        border-radius: 10px;
+        padding: 18px;
+        padding-top: 10px;
+        padding-bottom: 11px;
+        // padding-top: 3px;
+        &:hover {
+            background-color:rgb(10, 5, 0);
+            cursor:pointer;
+        }
+    }
 }
 
 .main {
     display: flex;
-    width: 100%;
+    width: 100%;    
     height: 100vh;
 }
 
