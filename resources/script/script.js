@@ -23,7 +23,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 async function loadUsersMarkers() {
     const { data: users, error } = await supabaseClient
         .from('User') 
-        .select('Name, Latitude, Longitude, Description');
+        .select('name, latitude, longitude, description');
 
     if (error) {
         console.error('Error loading users :', error);
