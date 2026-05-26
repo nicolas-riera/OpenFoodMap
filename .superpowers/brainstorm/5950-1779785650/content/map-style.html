@@ -1,0 +1,67 @@
+<h2>Quel style de carte ?</h2>
+<p class="subtitle">Le fond de carte influence beaucoup l'impression lors de la démo</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;overflow:hidden;height:160px;position:relative;background:#1a1a2e">
+      <!-- Dark map mockup -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0f0f23 0%,#1a1a3e 50%,#0f0f23 100%)"></div>
+      <!-- Faux continents -->
+      <div style="position:absolute;top:30%;left:15%;width:18%;height:30%;background:#2a2a4e;border-radius:40% 60% 50% 40%/60% 40% 60% 40%"></div>
+      <div style="position:absolute;top:25%;left:40%;width:22%;height:35%;background:#2a2a4e;border-radius:50% 40% 60% 50%/40% 60% 40% 60%"></div>
+      <div style="position:absolute;top:30%;left:65%;width:20%;height:32%;background:#2a2a4e;border-radius:45% 55% 45% 55%/55% 45% 55% 45%"></div>
+      <!-- Pins -->
+      <div style="position:absolute;top:38%;left:44%;width:8px;height:8px;background:#e8453c;border-radius:50%;box-shadow:0 0 6px #e8453c"></div>
+      <div style="position:absolute;top:32%;left:52%;width:8px;height:8px;background:#e8453c;border-radius:50%;box-shadow:0 0 6px #e8453c"></div>
+      <div style="position:absolute;top:42%;left:48%;width:6px;height:6px;background:#e8453c;border-radius:50%;box-shadow:0 0 4px #e8453c"></div>
+      <div style="position:absolute;top:35%;left:70%;width:8px;height:8px;background:#e8453c;border-radius:50%;box-shadow:0 0 6px #e8453c"></div>
+      <div style="position:absolute;top:28%;left:22%;width:6px;height:6px;background:#e8453c;border-radius:50%;box-shadow:0 0 4px #e8453c"></div>
+    </div>
+    <div class="card-body">
+      <h3>Dark mode (CartoDB Dark)</h3>
+      <p>Fond sombre, pins colorés qui ressortent. Très impactant pour une démo. Moderne, tech.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;overflow:hidden;height:160px;position:relative;background:#a8d5f5">
+      <!-- Light map mockup -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,#b8e0f7 0%,#a0d0ef 50%,#b8e0f7 100%)"></div>
+      <div style="position:absolute;top:30%;left:15%;width:18%;height:30%;background:#d4e8c2;border-radius:40% 60% 50% 40%/60% 40% 60% 40%"></div>
+      <div style="position:absolute;top:25%;left:40%;width:22%;height:35%;background:#d4e8c2;border-radius:50% 40% 60% 50%/40% 60% 40% 60%"></div>
+      <div style="position:absolute;top:30%;left:65%;width:20%;height:32%;background:#d4e8c2;border-radius:45% 55% 45% 55%/55% 45% 55% 45%"></div>
+      <!-- Pins -->
+      <div style="position:absolute;top:38%;left:44%;width:10px;height:10px;background:#e8453c;border-radius:50%"></div>
+      <div style="position:absolute;top:32%;left:52%;width:10px;height:10px;background:#e8453c;border-radius:50%"></div>
+      <div style="position:absolute;top:42%;left:48%;width:8px;height:8px;background:#e8453c;border-radius:50%"></div>
+      <div style="position:absolute;top:35%;left:70%;width:10px;height:10px;background:#e8453c;border-radius:50%"></div>
+      <div style="position:absolute;top:28%;left:22%;width:8px;height:8px;background:#e8453c;border-radius:50%"></div>
+    </div>
+    <div class="card-body">
+      <h3>Classique OpenStreetMap</h3>
+      <p>Carte claire familière. Accessible, lisible, universel. Moins de wow mais très propre.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;overflow:hidden;height:160px;position:relative;background:#f5f0e8">
+      <!-- Minimal/Positron map mockup -->
+      <div style="position:absolute;inset:0;background:#f5f0e8"></div>
+      <div style="position:absolute;top:30%;left:15%;width:18%;height:30%;background:#e8e2d8;border-radius:40% 60% 50% 40%/60% 40% 60% 40%;border:1px solid #d8d2c8"></div>
+      <div style="position:absolute;top:25%;left:40%;width:22%;height:35%;background:#e8e2d8;border-radius:50% 40% 60% 50%/40% 60% 40% 60%;border:1px solid #d8d2c8"></div>
+      <div style="position:absolute;top:30%;left:65%;width:20%;height:32%;background:#e8e2d8;border-radius:45% 55% 45% 55%/55% 45% 55% 45%;border:1px solid #d8d2c8"></div>
+      <!-- Pins - OFF orange -->
+      <div style="position:absolute;top:38%;left:44%;width:12px;height:12px;background:#f0820f;border-radius:50%;border:2px solid white"></div>
+      <div style="position:absolute;top:32%;left:52%;width:12px;height:12px;background:#f0820f;border-radius:50%;border:2px solid white"></div>
+      <div style="position:absolute;top:42%;left:48%;width:10px;height:10px;background:#f0820f;border-radius:50%;border:2px solid white"></div>
+      <div style="position:absolute;top:35%;left:70%;width:12px;height:12px;background:#f0820f;border-radius:50%;border:2px solid white"></div>
+      <div style="position:absolute;top:28%;left:22%;width:10px;height:10px;background:#f0820f;border-radius:50%;border:2px solid white"></div>
+    </div>
+    <div class="card-body">
+      <h3>Minimaliste + couleurs OFF (recommandé)</h3>
+      <p>Fond neutre CartoDB Positron, pins orange OFF (#f0820f). Les pins ressortent, la marque est cohérente.</p>
+    </div>
+  </div>
+
+</div>
