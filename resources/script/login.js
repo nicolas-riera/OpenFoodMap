@@ -28,7 +28,6 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
                 language: data.language || null
             };
             localStorage.setItem('off_user_session', JSON.stringify(sessionData));
-
             window.location.href = 'index.html';
         } else {
             errorDiv.innerText = "Nom d'utilisateur ou mot de passe incorrect.";

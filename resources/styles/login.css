@@ -4,62 +4,88 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #ffffff;
-  font-family: -apple-system, system-ui, sans-serif;
-  color: #111111;
+  background-color: #f9f9fb;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .login-container {
   width: 100%;
-  max-width: 340px;
-  padding: 20px;
+  max-width: 380px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 .login-container h1 {
-  font-size: 22px;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
   text-align: center;
-  margin-bottom: 24px;
+  margin: 0 0 8px 0;
 }
 .login-container .form-group {
-  margin-bottom: 16px;
+  margin-top: 24px;
 }
 .login-container .form-group label {
   display: block;
-  font-size: 13px;
-  color: #666666;
-  margin-bottom: 6px;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
 }
 .login-container .form-group input {
   width: 100%;
   padding: 12px;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
   box-sizing: border-box;
-  font-size: 15px;
 }
-.login-container .form-group input:focus {
-  border-color: #111111;
-  outline: none;
-}
-.login-container button {
-  width: 100%;
+.login-container .error-message {
+  color: #ef4444;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: none;
   padding: 12px;
-  background: #111111;
-  color: white;
+  background: #fef2f2;
+  border-radius: 8px;
+  border: 1px solid #fee2e2;
+  font-weight: 500;
+}
+
+button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  background: #ff8714;
+  color: rgb(255, 255, 255);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
 }
-.login-container button:disabled {
-  background: #cccccc;
-}
-.login-container .error-message {
-  color: #ff3333;
-  font-size: 13px;
-  margin-bottom: 16px;
+
+.register-area {
+  margin-top: 32px;
   text-align: center;
-  display: none;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 24px;
+}
+.register-area p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 16px 0;
+}
+.register-area .btn-register {
+  display: inline-block;
+  width: 100%;
   padding: 10px;
-  background: #fff0f0;
-  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+.register-area .btn-register:hover {
+  background-color: #f3f4f6;
 }/*# sourceMappingURL=login.css.map */
