@@ -3,22 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <title>Open Food Map</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="resources/styles/styles.css">
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="resources/script/country-bounds.js" defer></script>
     <script src="resources/script/script.js" defer></script>
+    <script src="resources/script/filter.js" defer></script>
 </head>
 <body>
 
     <header>
-        
+
+        <a href="index.html"><img src="resources/img/open_food_map_logo.png" alt="Logo Open Food Map"></a>
+
+        <!-- Header buttons -->
+        <div id="auth-buttons" class="buttons"></div> 
+
     </header>
 
-    <section id="map"></section>
+    <section class="titles">
+        <h3>
+            Cartographie de la communauté
+        </h3>
+        <p>
+            Une carte vivante des contributeurices d'Open Food Facts à travers le monde.
+        </p>
+    </section>
+    <section class="main">
+
+        <!-- Main map -->
+        <section id="map"></section>
+
+        <!-- Filter section -->
+        <aside>
+            <div class="filters">
+                <h3>Filtre</h3>
+                <hr>
+                <h5>Pays</h5>
+                <ul id="filter-countries"></ul>
+            </div>
+        </aside>
+
+    </section>  
     
+    <!-- Marker Popup -->
+    <div id="custom-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button id="close-popup-btn" style="margin-top: 15px; width: 100%;">Fermer</button>
+        </div>
+    </div>
+
 </body>
 </html>
