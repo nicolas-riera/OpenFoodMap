@@ -17,6 +17,17 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
+    a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    img {
+        height: 80px;
+        width: auto;
+        object-fit: contain;
+    }
     button {
         font-size: 1em;
         border: 0;
