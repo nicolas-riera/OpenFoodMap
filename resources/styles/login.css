@@ -5,7 +5,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: #f9f9fb;
-  font-family: "Inter", -apple-system, sans-serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .login-container {
@@ -17,6 +17,7 @@ body {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 .login-container h1 {
+  font-family: Arial, sans-serif;
   font-size: 24px;
   text-align: center;
   margin: 0 0 8px 0;
@@ -54,8 +55,8 @@ button {
   width: 100%;
   margin-top: 24px;
   padding: 14px;
-  background: #111111;
-  color: white;
+  background: #ff8714;
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 8px;
   cursor: pointer;

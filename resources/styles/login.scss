@@ -6,6 +6,19 @@ $color-border: #e5e7eb;
 $color-primary: #111111;
 $color-error: #ef4444;
 $color-error-bg: #fef2f2;
+$radius: 6px;
+$color-text: #1a1a1a;
+$color-text-muted: #6b7280;
+$color-primary: #111111;
+$color-border: #e5e7eb;
+$color-dark: #201a17;
+$color-orange: #ff8714;
+$color-bg-light: #f6f3f0;
+$color-white: #ffffff;
+
+$font-header: Arial, sans-serif;
+$font-body: "Times New Roman", Times, serif;
+
 $radius: 8px;
 
 body {
@@ -15,7 +28,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: $color-bg;
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: $font-body;
 }
 
 .login-container {
@@ -27,6 +40,7 @@ body {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 
     h1 {
+        font-family: $font-header;
         font-size: 24px;
         text-align: center;
         margin: 0 0 8px 0;
@@ -66,8 +80,8 @@ body {
         width: 100%;
         margin-top: 24px;
         padding: 14px;
-        background: $color-primary;
-        color: white;
+        background: $color-orange;
+        color: rgb(255, 255, 255);
         border: none;
         border-radius: $radius;
         cursor: pointer;
