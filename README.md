@@ -10,4 +10,4 @@ L'objectif est d'offrir un espace visuel où les contributeurs et contributrices
 
 ### Auteurs 
 
-Ce projet a été réalisé par [Nicolas](https://github.com/nicolas-riera), [Arthur](https://github.com/arthur-georget), Nelson, André, Achraf, Hugo et [Gabriel](https://github.com/Gabriel-SEMPERE).
+Ce projet a été réalisé par [Nicolas](https://github.com/nicolas-riera), [Arthur](https://github.com/arthur-georget), [Nelson](https://github.com/nelson-grac-aubert), André, Achraf, Hugo et [Gabriel](https://github.com/Gabriel-SEMPERE).

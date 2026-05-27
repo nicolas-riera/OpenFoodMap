@@ -58,6 +58,8 @@ async function loadUsersMarkers() {
         return;
     }
 
+    const markersData = [];
+
     users.forEach(user => {
         if (user.latitude && user.longitude) {
             const lat = parseFloat(user.latitude);
@@ -70,11 +72,30 @@ async function loadUsersMarkers() {
 
             const popupContent = `<b>${user.name}</b><br>${user.description || "Pas de description."}${langContent}`;
             marker.bindPopup(popupContent);
+
+            user.country = getCountryFromCoords(lat, lng);
+
+            markersData.push({ marker, user });
         }
     });
+
+    document.dispatchEvent(new CustomEvent('usersLoaded', { detail: { users, markers: markersData } }));
 }
 
-loadUsersMarkers();
+async function ensureSessionLanguage() {
+    if (!session?.isLoggedIn || session.language !== undefined) return;
+    try {
+        const res = await fetch(`user_info_proxy.php?user_id=${encodeURIComponent(session.username)}`);
+        const info = await res.json();
+        const language = info?.user?.cc || info?.user?.lc || null;
+        const updated = { ...session, language };
+        localStorage.setItem('off_user_session', JSON.stringify(updated));
+        // Reflect on the module-level variable so filter.js can read it
+        session.language = language;
+    } catch (_) {}
+}
+
+ensureSessionLanguage().then(loadUsersMarkers);
 
 // Marker Popup system
 const openBtn = document.getElementById('open-popup-btn');
