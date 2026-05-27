@@ -6,29 +6,33 @@ $color-border: #e5e7eb;
 $color-primary: #111111;
 $color-error: #ef4444;
 $color-error-bg: #fef2f2;
-$radius: 6px;
-$color-text: #1a1a1a;
-$color-text-muted: #6b7280;
-$color-primary: #111111;
-$color-border: #e5e7eb;
 $color-dark: #201a17;
 $color-orange: #ff8714;
 $color-bg-light: #f6f3f0;
 $color-white: #ffffff;
 
 $font-header: Arial, sans-serif;
-$font-body: "Times New Roman", Times, serif;
+
 
 $radius: 8px;
 
 body {
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: $color-bg;
-    font-family: $font-body;
+    font-family: $font-header;
+}
+
+.Logo {
+    margin-bottom: 24px;
+    img {
+        max-width: 200px;
+        height: auto;
+    }
 }
 
 .login-container {
