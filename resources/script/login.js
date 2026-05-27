@@ -34,6 +34,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             errorDiv.style.display = 'block';
         }
     } catch (err) {
+        console.log(err)
         errorDiv.innerText = "Erreur de connexion au serveur.";
         errorDiv.style.display = 'block';
     } finally {
