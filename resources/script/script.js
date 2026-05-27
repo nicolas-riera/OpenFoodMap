@@ -155,7 +155,14 @@ if (openBtn && closeBtn && popup) {
         });
 
         // GPS button
-        document.getElementById('popup-gps-btn').addEventListener('click', () => {
+        document.getElementById('popup-gps-btn').addEventListener('click', (e) => {
+            const btn = e.currentTarget;
+            const originalText = btn.textContent;
+            
+            btn.style.width = `${btn.offsetWidth}px`;
+            btn.textContent = '...';
+            btn.disabled = true;
+
             navigator.geolocation.getCurrentPosition((position) => {
                 selectedLat = position.coords.latitude;
                 selectedLng = position.coords.longitude;
@@ -166,8 +173,15 @@ if (openBtn && closeBtn && popup) {
                 } else {
                     miniMapMarker = L.marker([selectedLat, selectedLng]).addTo(miniMap);
                 }
+
+                btn.textContent = originalText;
+                btn.style.width = '';
+                btn.disabled = false;
             }, () => {
                 alert("Impossible d'obtenir votre position GPS.");
+                btn.textContent = originalText;
+                btn.style.width = '';
+                btn.disabled = false;
             });
         });
 
