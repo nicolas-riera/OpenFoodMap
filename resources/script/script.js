@@ -1,6 +1,6 @@
 // Database init
 const SUPABASE_URL = 'https://xkgdwqfldzqzsahyvicf.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_T2lUSzY9d5N1PWMt0cveEg_uJIdoJoO'; 
+const SUPABASE_ANON_KEY = 'sb_publishable_T2lUSzY9d5N1PWMt0cveEg_uJIdoJoO';
 
 const session = JSON.parse(localStorage.getItem('off_user_session'));
 const username = session ? session.username : 'guest';
@@ -32,8 +32,8 @@ if (!session || !session.isLoggedIn) {
 
 // Map preparation 
 const maxBounds = L.latLngBounds(
-    L.latLng(-90, -180), 
-    L.latLng(90, 180)    
+    L.latLng(-90, -180),
+    L.latLng(90, 180)
 );
 
 const map = L.map('map', {
@@ -50,7 +50,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 async function loadUsersMarkers() {
     const { data: users, error } = await supabaseClient
-        .from('User') 
+        .from('User')
         .select('name, latitude, longitude, description, language');
 
     if (error) {
@@ -66,7 +66,7 @@ async function loadUsersMarkers() {
             const marker = L.marker([lat, lng]).addTo(map);
 
             const langValue = user.language && user.language !== "null" ? user.language.trim() : "";
-            const langContent = langValue ? `<br>Langue : ${langValue}` : "";   
+            const langContent = langValue ? `<br>Langue : ${langValue}` : "";
 
             const popupContent = `<b>${user.name}</b><br>${user.description || "Pas de description."}${langContent}`;
             marker.bindPopup(popupContent);
@@ -101,7 +101,7 @@ if (openBtn && closeBtn && popup) {
         div.className = 'dynamic-content';
 
         const hasMarker = userData && userData.latitude && userData.longitude;
-        
+
         selectedLat = hasMarker ? parseFloat(userData.latitude) : null;
         selectedLng = hasMarker ? parseFloat(userData.longitude) : null;
 
@@ -132,7 +132,7 @@ if (openBtn && closeBtn && popup) {
         popup.classList.add('active');
 
         miniMap = L.map('mini-map').setView([selectedLat || 47, selectedLng || 7], hasMarker ? 12 : 4);
-        
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             minZoom: 1,
             maxZoom: 19,
@@ -158,7 +158,7 @@ if (openBtn && closeBtn && popup) {
         document.getElementById('popup-gps-btn').addEventListener('click', (e) => {
             const btn = e.currentTarget;
             const originalText = btn.textContent;
-            
+
             btn.style.width = `${btn.offsetWidth}px`;
             btn.textContent = '...';
             btn.disabled = true;
@@ -166,7 +166,7 @@ if (openBtn && closeBtn && popup) {
             navigator.geolocation.getCurrentPosition((position) => {
                 selectedLat = position.coords.latitude;
                 selectedLng = position.coords.longitude;
-                
+
                 miniMap.setView([selectedLat, selectedLng], 14);
                 if (miniMapMarker) {
                     miniMapMarker.setLatLng([selectedLat, selectedLng]);
@@ -175,12 +175,12 @@ if (openBtn && closeBtn && popup) {
                 }
 
                 btn.textContent = originalText;
-                btn.style.width = '';
+                btn.style.width = '100%'; 
                 btn.disabled = false;
             }, () => {
                 alert("Impossible d'obtenir votre position GPS.");
                 btn.textContent = originalText;
-                btn.style.width = '';
+                btn.style.width = '100%'; 
                 btn.disabled = false;
             });
         });
@@ -193,7 +193,7 @@ if (openBtn && closeBtn && popup) {
             }
 
             const desc = document.getElementById('marker-desc').value;
-            
+
             try {
                 const { error } = await supabaseClient
                     .from('User')
