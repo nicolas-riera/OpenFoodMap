@@ -73,4 +73,64 @@ aside {
   .main {
     flex-direction: column;
   }
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-popup-content {
+  font-family: "Inter", -apple-system, sans-serif;
+  color: #1a1a1a;
+  line-height: 1.5;
+  margin: 12px;
+}
+.leaflet-popup-content strong {
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+.leaflet-popup-content br {
+  display: none;
+}
+.leaflet-popup-content p {
+  margin: 4px 0 12px 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  padding: 8px 12px;
+  color: #6b7280;
+  font-size: 18px;
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #1a1a1a;
+}
+
+.popup-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #111111;
+  color: white !important;
+  text-decoration: none !important;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 10px;
+}
+.popup-button:hover {
+  background: #333333;
+}
+.popup-button:active {
+  transform: scale(0.97);
 }/*# sourceMappingURL=styles.css.map */

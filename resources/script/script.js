@@ -106,21 +106,27 @@ if (openBtn && closeBtn && popup) {
         selectedLng = hasMarker ? parseFloat(userData.longitude) : null;
 
         div.innerHTML = `
-            <h3>${hasMarker ? 'Modifier mon marqueur' : 'Placer un marqueur'}</h3>
-            
-            <div id="mini-map" style="width: 100%; height: 250px; margin-bottom: 15px; border-radius: 4px; cursor: crosshair;"></div>
-            
-            <div style="margin-bottom: 15px;">
-                <button id="popup-gps-btn" type="button">Utiliser ma position GPS</button>
-            </div>
+    <div style="font-family: -apple-system, system-ui, sans-serif; color: #111111; padding: 5px;">
+        <h3 style="margin: 0 0 16px 0; font-size: 18px; font-weight: 700; letter-spacing: -0.5px;">
+            ${hasMarker ? 'Modifier mon marqueur' : 'Placer un marqueur'}
+        </h3>
+        
+        <div id="mini-map" style="width: 100%; height: 200px; margin-bottom: 16px; border-radius: 8px; border: 1px solid #e5e7eb; cursor: crosshair;"></div>
+        
+        <div style="margin-bottom: 16px;">
+            <button id="popup-gps-btn" type="button" style="width: 100%; padding: 10px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s;">
+                Utiliser ma position GPS
+            </button>
+        </div>
 
-            <textarea id="marker-desc" placeholder="Description (facultatif)">${hasMarker ? (userData.description || '') : ''}</textarea>
-            
-            <div class="popup-actions" style="margin-top: 15px; display: flex; justify-content: space-between; gap: 10px;">
-                ${hasMarker ? '<button id="delete-marker-btn" style="background-color: #ff4d4d; color: white;">Supprimer</button>' : ''}
-                <button id="save-marker-btn" style="background-color: #4cacaf; color: white; flex-grow: 1;">Enregistrer</button>
-            </div>
-        `;
+        <textarea id="marker-desc" placeholder="Description (facultatif)" style="width: 100%; height: 80px; padding: 12px; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 14px; font-family: inherit; box-sizing: border-box; resize: none; outline: none; transition: border-color 0.2s;">${hasMarker ? (userData.description || '') : ''}</textarea>
+        
+        <div class="popup-actions" style="margin-top: 20px; display: flex; justify-content: space-between; gap: 10px;">
+            ${hasMarker ? '<button id="delete-marker-btn" style="padding: 12px 16px; background-color: #fef2f2; color: #ef4444; border: 1px solid #fee2e2; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px;">Supprimer</button>' : ''}
+            <button id="save-marker-btn" style="flex-grow: 1; padding: 12px; background-color: #111111; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px;">Enregistrer</button>
+        </div>
+    </div>
+`;
 
         popupContentContainer.insertBefore(div, closeBtn);
         popup.classList.add('active');

@@ -1,4 +1,8 @@
 $radius: 6px;
+$color-text: #1a1a1a;
+$color-text-muted: #6b7280;
+$color-primary: #111111;
+$color-border: #e5e7eb;
 
 body {
     margin: 0;
@@ -76,4 +80,71 @@ aside {
    .main {
     flex-direction: column;
    }
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-popup-content {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: $color-text;
+    line-height: 1.5;
+    margin: 12px;
+
+    strong {
+        font-size: 16px;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    br {
+        display: none; 
+    }
+
+    p {
+        margin: 4px 0 12px 0;
+        color: $color-text-muted;
+        font-size: 14px;
+    }
+}
+
+.leaflet-popup-tip {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    padding: 8px 12px;
+    color: $color-text-muted;
+    font-size: 18px;
+    
+    &:hover {
+        color: $color-text;
+    }
+}
+
+.popup-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: $color-primary;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 10px 0;
+    border-radius: $radius;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 10px;
+
+    &:hover {
+        background: #333333;
+    }
+
+    &:active {
+        transform: scale(0.97);
+    }
 }
