@@ -70,8 +70,31 @@ aside {
 }
 
 @media (max-width: 900px) {
+  header {
+    height: auto;
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  header button {
+    width: 100%;
+    margin-top: 5px;
+  }
   .main {
     flex-direction: column;
+    height: calc(100vh - 120px);
+  }
+  #map {
+    margin: 10px;
+    height: 50vh;
+    min-height: 300px;
+    flex: none;
+  }
+  aside {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    flex: 1;
   }
 }
 .leaflet-popup-content-wrapper {
