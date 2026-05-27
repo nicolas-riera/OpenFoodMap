@@ -92,9 +92,6 @@ aside {
   display: block;
   margin-bottom: 8px;
 }
-.leaflet-popup-content br {
-  display: none;
-}
 .leaflet-popup-content p {
   margin: 4px 0 12px 0;
   color: #6b7280;
