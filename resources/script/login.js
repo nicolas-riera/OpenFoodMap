@@ -1,10 +1,10 @@
 document.getElementById('loginForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    
+
     const errorDiv = document.getElementById('error');
     const submitBtn = document.getElementById('submitBtn');
     const username = document.getElementById('username').value;
-    
+
     errorDiv.style.display = 'none';
     submitBtn.disabled = true;
     submitBtn.innerText = "Connexion...";
@@ -18,13 +18,14 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             body: payload
         });
 
-        const resultText = await response.text();
+        const data = await response.json();
 
-        if (response.ok && !resultText.includes("Incorrect user name")) {
+        if (response.ok && data.success) {
             const sessionData = {
                 username: username,
                 loginTime: new Date().getTime(),
-                isLoggedIn: true
+                isLoggedIn: true,
+                language: data.language || null
             };
             localStorage.setItem('off_user_session', JSON.stringify(sessionData));
 

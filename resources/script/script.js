@@ -50,13 +50,15 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 async function loadUsersMarkers() {
     const { data: users, error } = await supabaseClient
-        .from('User') 
+        .from('User')
         .select('name, latitude, longitude, description, language');
 
     if (error) {
         console.error('Error loading users :', error);
         return;
     }
+
+    const markersData = [];
 
     users.forEach(user => {
         if (user.latitude && user.longitude) {
@@ -66,15 +68,34 @@ async function loadUsersMarkers() {
             const marker = L.marker([lat, lng]).addTo(map);
 
             const langValue = user.language && user.language !== "null" ? user.language.trim() : "";
-            const langContent = langValue ? `<br>Langue : ${langValue}` : "";   
+            const langContent = langValue ? `<br>Langue : ${langValue}` : "";
 
             const popupContent = `<b>${user.name}</b><br>${user.description || "Pas de description."}${langContent}`;
             marker.bindPopup(popupContent);
+
+            user.country = getCountryFromCoords(lat, lng);
+
+            markersData.push({ marker, user });
         }
     });
+
+    document.dispatchEvent(new CustomEvent('usersLoaded', { detail: { users, markers: markersData } }));
 }
 
-loadUsersMarkers();
+async function ensureSessionLanguage() {
+    if (!session?.isLoggedIn || session.language !== undefined) return;
+    try {
+        const res = await fetch(`user_info_proxy.php?user_id=${encodeURIComponent(session.username)}`);
+        const info = await res.json();
+        const language = info?.user?.cc || info?.user?.lc || null;
+        const updated = { ...session, language };
+        localStorage.setItem('off_user_session', JSON.stringify(updated));
+        // Reflect on the module-level variable so filter.js can read it
+        session.language = language;
+    } catch (_) {}
+}
+
+ensureSessionLanguage().then(loadUsersMarkers);
 
 // Marker Popup system
 const openBtn = document.getElementById('open-popup-btn');

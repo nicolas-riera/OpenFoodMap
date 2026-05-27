@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <title>Open Food Map</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -11,7 +11,9 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="resources/script/country-bounds.js" defer></script>
     <script src="resources/script/script.js" defer></script>
+    <script src="resources/script/filter.js" defer></script>
 </head>
 <body>
 
@@ -23,12 +25,24 @@
 
     </header>
 
+    <section class="titles">
+        <h3>
+            Cartographie de la communauté
+        </h3>
+        <p>
+            Une carte vivante des contributeurices d'Open Food Facts à travers le monde.
+        </p>
+    </section>
     <section class="main">
         <section id="map"></section>
 
         <aside>
-            <div>
-
+            <div class="filters">
+                <h3>Filtre</h3>
+                <hr>
+                <h5>Pays</h5>
+                <ul id="filter-countries"></ul>
+                <h5>Groupes</h5>
             </div>
         </aside>
     </section>  
