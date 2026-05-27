@@ -16,11 +16,13 @@ header a {
   display: flex;
   align-items: center;
   height: 100%;
+  text-decoration: none;
 }
 header img {
   height: 80px;
   width: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 header button {
   font-size: 1em;
@@ -199,6 +201,4 @@ aside {
 }
 .popup-button:active {
   transform: scale(0.97);
-}
-
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */
