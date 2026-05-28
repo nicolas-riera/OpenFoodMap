@@ -2,7 +2,7 @@
 
 ------
 
-*Ce projet fait parti d'un hackathon de 2 jours.*
+*Ce projet fait parti d'un hackathon de 2 jours en collaboration avec La Plateforme_, Free Pro, Fondation Free et Open Food Facts.*
 
 Open Food Facts est un projet mondial, mais il est parfois difficile de visualiser l'étendue et la diversité de sa communauté. Open Food Map est une carte interactive qui permet de cartographier la communauté Open Food Facts à travers le monde.
 
